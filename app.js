@@ -191,7 +191,7 @@ app.put(
     district_id = ${districtId};
   `;
 
-    await database.run(updateDistrictQuery);
+    await db.run(updateDistrictQuery);
     response.send("District Details Updated");
   }
 );
@@ -212,7 +212,7 @@ app.get(
       district
     WHERE
       state_id=${stateId};`;
-    const stats = await database.get(getStateStatsQuery);
+    const stats = await db.get(getStateStatsQuery);
     response.send({
       totalCases: stats["SUM(cases)"],
       totalCured: stats["SUM(cured)"],
